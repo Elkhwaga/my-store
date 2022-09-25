@@ -1,27 +1,33 @@
-# Mystore
+# MyStore
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.1.0.
+!['product list'](./docs/product_list.png)
 
-## Development server
+MyStore is a single-page application built in Angular, that offers a rich, dynamic experience on the web. It presents a list of product which can be added to a cart then checkout. Bellow are all the functionality one can perform:
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+- View list of products
+- Add products to cart
+- View products in cart
+- Delete product from cart
+- Checkout products in cart
 
-## Code scaffolding
+## Run
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+### Install Dependencies
 
-## Build
+fork this repo and open a terminal at the root directory and run the command
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+```
+npm install
+```
 
-## Running unit tests
+## Start server
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+On the same terminal, run the command
 
-## Running end-to-end tests
+```
+ng serve
+```
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+**NB**: Be sure to allow the default port of `4200`

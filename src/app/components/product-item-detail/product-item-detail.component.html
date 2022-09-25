@@ -1,0 +1,61 @@
+<div *ngIf="product" class="container item-detail position-relative">
+  <div class="row">
+    <div class="offset-md-4 col-md-4">
+      <div class="card border-0 shadow-sm mb-4">
+        <a routerLink="item-detail/{{ product.id }}">
+          <img class="img-card card-img-top" [src]="product.url" alt="Title" />
+        </a>
+        <div class="card-body">
+          <h4 class="card-title">{{ product.name }}</h4>
+          <p class="card-text">{{ product.description }}</p>
+          <div class="price d-flex align-items-center justify-content-center">
+            <span>${{ product.price }}</span>
+          </div>
+          <form (ngSubmit)="onSubmit(product, $event)">
+            <div class="row align-items-center">
+              <div class="col-8">
+                <div class="input-group">
+                  <label
+                    class="input-group-text text-bg-dark"
+                    for="inputGroupSelect01"
+                    >Amount</label
+                  >
+                  <select
+                    class="form-select form-select-sm"
+                    id="inputGroupSelect01"
+                  >
+                    <option
+                      *ngFor="let productOption of productCount"
+                      [ngValue]="productOption"
+                      [selected]="productOption === '1'"
+                    >
+                      {{ productOption }}
+                    </option>
+                  </select>
+                </div>
+              </div>
+              <div class="col-4">
+                <button
+                  type="submit"
+                  class="btn btn-dark btn-sm rounded-circle d-flex ms-auto"
+                >
+                  <fa-icon [icon]="faPlus"></fa-icon>
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="back-to rounded-circle d-flex align-items-center justify-content-center"
+  >
+    <a routerLink="/"
+      ><fa-icon
+        style="font-size: 25px; color: #333"
+        [icon]="faArrowLeft"
+      ></fa-icon
+    ></a>
+  </div>
+</div>

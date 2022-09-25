@@ -1,0 +1,34 @@
+<div
+  class="d-flex align-items-center flex-column justify-content-center confirmation position-relative"
+>
+  <h3 class="display-4 mb-4">
+    SUCCESS
+    <fa-icon
+      style="font-size: 50px; color: #0e998d; margin-left: 5px"
+      [icon]="faCheck"
+    ></fa-icon>
+  </h3>
+  <div class="fs-4 mb-2">
+    Thank you, <strong>{{ firstName }}</strong>
+  </div>
+  <div class="fs-4 mb-2">
+    Your <strong>${{ totalPrice }}</strong> order is confirmed!
+  </div>
+  <div class="fs-4 mb-2">
+    Please allow 1-3 business day(s) for shipping
+    <fa-icon
+      style="font-size: 30px; color: #0e998d"
+      [icon]="faTruckFast"
+    ></fa-icon>
+  </div>
+  <div
+    class="back-to rounded-circle d-flex align-items-center justify-content-center"
+  >
+    <a routerLink="/"
+      ><fa-icon
+        style="font-size: 25px; color: #333"
+        [icon]="faArrowLeft"
+      ></fa-icon
+    ></a>
+  </div>
+</div>

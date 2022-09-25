@@ -1,0 +1,40 @@
+<header>
+	<nav class="navbar navbar-expand-sm shadow-sm fixed-top py-3">
+		<div class="container-fluid">
+			<a routerLink="/" class="navbar-brand"
+				><fa-icon [icon]="faShop"></fa-icon> {{ title }}</a
+			>
+			<button
+				class="navbar-toggler"
+				type="button"
+				data-bs-toggle="collapse"
+				data-bs-target="#navbarSupportedContent"
+				aria-controls="navbarSupportedContent"
+				aria-expanded="false"
+				aria-label="Toggle navigation"
+			>
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarSupportedContent">
+				<ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+					<li class="nav-item">
+						<a class="nav-link" routerLink="/"
+							><fa-icon [icon]="faTag"></fa-icon> Products</a
+						>
+					</li>
+					<li class="nav-item position-relative">
+						<a class="nav-link" routerLink="cart/"
+							>Cart <fa-icon [icon]="faCartShopping"></fa-icon>
+							<span
+								class="cartAmount rounded-circle d-flex align-items-center justify-content-center"
+								id="cartAmount"
+								#cartAmount
+								>0</span
+							></a
+						>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+</header>

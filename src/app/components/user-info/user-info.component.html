@@ -1,0 +1,99 @@
+<h3 class="mb-4">Checkout</h3>
+<form
+  [formGroup]="registerForm"
+  (ngSubmit)="onSubmit()"
+  class="bg-white shadow-sm p-3"
+>
+  <!-- FirstName -->
+  <div class="mb-3">
+    <div class="input-group d-flex gap-3 align-items-center">
+      <label for="firstname"
+        ><fa-icon style="font-size: 20px" [icon]="faUser"></fa-icon
+      ></label>
+      <input
+        type="text"
+        class="form-control"
+        name="firstName"
+        formControlName="firstName"
+        [ngClass]="{
+          'is-invalid': submitted && firstName?.touched && firstName?.errors
+        }"
+        placeholder="Enter First Name"
+      />
+    </div>
+    <div
+      *ngIf="firstName?.invalid && (firstName?.dirty || firstName?.touched)"
+      class="text-danger ps-5 py-2"
+    >
+      <div *ngIf="firstName?.errors?.['required']">First Name is required.</div>
+
+      <div *ngIf="firstName?.errors?.['minlength']">
+        The name must be at least 4 characters long.
+      </div>
+    </div>
+  </div>
+  <!-- Address -->
+  <div class="mb-3">
+    <div class="input-group d-flex gap-3 align-items-center mb-4">
+      <label for="address"><fa-icon [icon]="faMapMarkerAlt"></fa-icon></label>
+      <input
+        type="text"
+        class="form-control"
+        name="address"
+        formControlName="address"
+        [ngClass]="{
+          'is-invalid': submitted && address?.touched && address?.errors
+        }"
+        placeholder="Enter Address"
+      />
+    </div>
+    <div
+      *ngIf="address?.invalid && (address?.dirty || address?.touched)"
+      class="text-danger ps-5 py-2"
+    >
+      <div *ngIf="address?.errors?.['required']">Address is required.</div>
+
+      <div *ngIf="address?.errors?.['minlength']">
+        The address must be at least 10 characters long.
+      </div>
+    </div>
+  </div>
+
+  <div class="mb-3">
+    <div class="input-group d-flex gap-3 align-items-center mb-4">
+      <label for="creditCard"
+        ><fa-icon style="font-size: 20px" [icon]="faCreditCard"></fa-icon
+      ></label>
+      <input
+        type="text"
+        class="form-control"
+        name="creditCard"
+        formControlName="creditCard"
+        [ngClass]="{
+          'is-invalid': submitted && creditCard?.touched && creditCard?.errors
+        }"
+        placeholder="(16-digit number)"
+      />
+    </div>
+    <div
+      *ngIf="creditCard?.invalid && (creditCard?.dirty || creditCard?.touched)"
+      class="text-danger ps-5 py-2"
+    >
+      <div *ngIf="creditCard?.errors?.['required']">
+        Credit card required Please enter the code below.
+      </div>
+
+      <div *ngIf="creditCard?.errors?.['minlength']">
+        Must have 16 numbers matching credit cards.
+      </div>
+
+      <div *ngIf="creditCard?.errors?.['maxLength']">
+        You skipped the number. Please enter the correct code. 16 digits only.
+      </div>
+    </div>
+  </div>
+
+  <button type="submit" class="btn btn-success">
+    <fa-icon [icon]="faClipboard"></fa-icon>
+  </button>
+</form>

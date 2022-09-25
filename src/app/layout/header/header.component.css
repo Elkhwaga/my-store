@@ -1,0 +1,14 @@
+.navbar {
+	background-color: #fff;
+}
+.cartAmount {
+	position: absolute;
+	right: -10%;
+	top: -10%;
+	background-color: #333;
+	color: #fff;
+	width: 20px;
+	height: 20px;
+	line-height: 0;
+	font-size: 13px;
+}
