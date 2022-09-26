@@ -9,7 +9,7 @@ export class CartService {
   constructor() {}
 
   getCartProduct(): any {
-    const getProduct = this.storage.getItem('products');
+    const getProduct = this.storage.getItem('cart');
     return getProduct ? JSON.parse(getProduct) : [];
   }
 

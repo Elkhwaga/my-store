@@ -1,5 +1,9 @@
-.cart-product .card img {
-	height: 250px;
+.cart-product {
+	height: 100vh;
+}
+img {
+	width: 70px;
+	height: 70px;
 }
 .input-group-text {
 	font-size: 0.9rem;

@@ -1,58 +1,57 @@
-<div class="container cart-product" *ngIf="cartProducts.length; else emptyCart">
+<div class="container cart-product">
   <div class="row">
     <div class="col-md-8">
-      <div class="row">
-        <div class="col-md-4" *ngFor="let cartProduct of cartProducts">
-          <div class="card border-0 shadow-sm mb-4">
-            <img
-              class="img-card card-img-top"
-              [src]="cartProduct.url"
-              alt="Title"
-            />
-            <div class="card-body">
-              <h4 class="card-title">{{ cartProduct.name }}</h4>
-              <p class="card-text">{{ cartProduct.description }}</p>
-              <div
-                class="price d-flex align-items-center justify-content-center"
-              >
-                <span>${{ cartProduct.price }}</span>
-              </div>
-              <div class="row align-items-center">
-                <div class="col-9">
-                  <div class="input-group">
-                    <label
-                      class="input-group-text text-bg-dark"
-                      for="inputGroupSelect01"
-                      >Amount</label
-                    >
-                    <select
-                      class="form-select form-select-sm"
-                      #cart
-                      (change)="selectChange(cart.value, cartProduct)"
-                    >
-                      <option
-                        *ngFor="let productOption of productCount"
-                        [ngValue]="productOption"
-                        [selected]="cartProduct.amount === productOption"
-                      >
-                        {{ productOption }}
-                      </option>
-                    </select>
-                  </div>
-                </div>
-                <div class="col-3">
-                  <button
-                    type="submit"
-                    (click)="deletedItem(cartProduct.id)"
-                    class="btn btn-danger btn-sm rounded-circle d-flex ms-auto"
-                  >
-                    <fa-icon [icon]="faTrash"></fa-icon>
+      <div class="table-responsive">
+        <table class="table table-bordered align-middle">
+          <thead class="table-dark">
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Image</th>
+              <th scope="col">Name</th>
+              <th scope="col">Price</th>
+              <th scope="col">Quantity</th>
+              <th scope="col">Total</th>
+              <th scope="col">operations</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let cartProduct of cartProducts; index as i">
+              <th>{{ i + 1 }}</th>
+              <td>
+                <img [src]="cartProduct.item.url" alt="Title" />
+              </td>
+              <td>{{ cartProduct.item.name }}</td>
+              <td>$ {{ cartProduct.item.price }}</td>
+              <td>
+                <div class="d-flex gap-3">
+                  <button class="btn btn-dark" (click)="plusAmount(i)">
+                    +
+                  </button>
+                  <input
+                    type="number"
+                    class="form-control-sm"
+                    [(ngModel)]="cartProduct.quantity"
+                    (change)="changeAmount()"
+                    min="1"
+                  />
+                  <button class="btn btn-dark" (click)="minsAmount(i)">
+                    -
                   </button>
                 </div>
-              </div>
-            </div>
-          </div>
-        </div>
+              </td>
+              <td>$ {{ cartProduct.item.price * cartProduct.quantity }}</td>
+              <td>
+                <button
+                  type="submit"
+                  class="btn btn-danger btn-sm rounded-circle"
+                  (click)="removeItem(i)"
+                >
+                  <fa-icon [icon]="faTrash"></fa-icon>
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
       </div>
       <div class="cart-item">
         <b
@@ -65,17 +64,3 @@
     </div>
   </div>
 </div>
-
-<ng-template #emptyCart>
-  <div
-    class="empty-cart warning-message d-flex justify-content-center align-items-center"
-  >
-    <strong class="display-5">Cart is empty! Please, add product</strong
-    ><a routerLink="/"
-      ><fa-icon
-        style="font-size: 40px; margin-left: 20px; color: #333"
-        [icon]="faCartPlus"
-      ></fa-icon></a
-    >.
-  </div>
-</ng-template>

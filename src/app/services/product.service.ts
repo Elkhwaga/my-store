@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-
+import { environment } from 'src/environments/environment';
 import { Observable } from 'rxjs';
 
 import { Product } from '../model/product';
@@ -9,16 +9,16 @@ import { Product } from '../model/product';
   providedIn: 'root',
 })
 export class ProductService {
-  products: Product[] = [];
+  products: any = [];
   storage: Storage = window.localStorage;
 
   constructor(private http: HttpClient) {}
 
   getAllProduct(): Observable<Product[]> {
-    return this.http.get<Product[]>('../assets/data.json');
+    return this.http.get<Product[]>(environment.baseApi);
   }
 
   addProduct(product: Product[]): void {
-    this.storage.setItem('products', JSON.stringify(product));
+    this.storage.setItem('cart', JSON.stringify(product));
   }
 }

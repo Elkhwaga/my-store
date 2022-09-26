@@ -1,10 +1,10 @@
 export interface Product {
+  item?: any;
   id: number;
   name: string;
   price: number;
   url: string;
   description: string;
-  amount: string;
+  quantity?: any;
+  // amount?: number;
 }
-
-export const productCount: string[] = ['1', '2', '3', '4', '5'];

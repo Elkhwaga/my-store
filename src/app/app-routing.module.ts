@@ -6,13 +6,15 @@ import { CartComponent } from './components/cart/cart.component';
 import { ConfirmationComponent } from './components/confirmation/confirmation.component';
 
 const routes: Routes = [
-  { path: '', component: ProductListComponent },
-  { path: 'item-detail/:id', component: ProductItemDetailComponent },
+  { path: '', redirectTo: '/products', pathMatch: 'full' },
+  { path: 'products', component: ProductListComponent },
+  { path: 'details/:id', component: ProductItemDetailComponent },
   { path: 'cart', component: CartComponent },
   {
-    path: 'success/:firstName/:totalPrice',
+    path: 'confirmation/:firstName/:totalPrice',
     component: ConfirmationComponent,
   },
+  { path: '**', redirectTo: '/products', pathMatch: 'full' },
 ];
 
 @NgModule({

@@ -13,6 +13,8 @@ import { ConfirmationComponent } from './components/confirmation/confirmation.co
 import { ProductItemDetailComponent } from './components/product-item-detail/product-item-detail.component';
 
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { SpinnerComponent } from './layout/spinner/spinner.component';
+import { ProductItemComponent } from './components/product-item/product-item.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +25,8 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     ProductListComponent,
     ConfirmationComponent,
     ProductItemDetailComponent,
+    SpinnerComponent,
+    ProductItemComponent,
   ],
   imports: [
     FormsModule,
