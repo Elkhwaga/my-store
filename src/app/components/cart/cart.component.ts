@@ -85,12 +85,12 @@ export class CartComponent implements OnInit {
     }
   }
 
-  reloaded(): void {
-    window.location.reload();
-  }
-
   onSubmit(info: { firstName: any }): void {
     this.cartService.clearCart();
     this.route.navigate([`confirmation/${info.firstName}/${this.totalPrice}`]);
+  }
+
+  reloaded(): void {
+    window.location.reload();
   }
 }

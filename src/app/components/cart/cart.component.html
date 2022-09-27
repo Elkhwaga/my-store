@@ -2,7 +2,9 @@
   <div class="row">
     <div class="col-md-8">
       <div class="table-responsive">
-        <table class="table table-bordered align-middle">
+        <table
+          class="table table-bordered align-middle table-striped table-hover"
+        >
           <thead class="table-dark">
             <tr>
               <th scope="col">#</th>
@@ -15,23 +17,26 @@
             </tr>
           </thead>
           <tbody>
-            <tr *ngFor="let cartProduct of cartProducts; index as i">
+            <tr
+              class="text-center"
+              *ngFor="let cartProduct of cartProducts; index as i"
+            >
               <th>{{ i + 1 }}</th>
               <td>
                 <img [src]="cartProduct.item.url" alt="Title" />
               </td>
               <td>{{ cartProduct.item.name }}</td>
-              <td>$ {{ cartProduct.item.price }}</td>
+              <td>${{ cartProduct.item.price }}</td>
               <td>
-                <div class="d-flex gap-3">
+                <div class="d-flex justify-content-evenly">
                   <button class="btn btn-dark" (click)="plusAmount(i)">
                     +
                   </button>
                   <input
                     type="number"
-                    class="form-control-sm"
+                    class="form-control-sm w-25"
                     [(ngModel)]="cartProduct.quantity"
-                    (change)="changeAmount()"
+                    (ngModelChange)="changeAmount()"
                     min="1"
                   />
                   <button class="btn btn-dark" (click)="minsAmount(i)">
@@ -39,7 +44,11 @@
                   </button>
                 </div>
               </td>
-              <td>$ {{ cartProduct.item.price * cartProduct.quantity }}</td>
+              <td>
+                ${{
+                  (cartProduct.item.price * cartProduct.quantity).toFixed(2)
+                }}
+              </td>
               <td>
                 <button
                   type="submit"
@@ -53,9 +62,11 @@
           </tbody>
         </table>
       </div>
+      <hr />
       <div class="cart-item">
-        <b
-          ><fa-icon [icon]="faMoneyCheckDollar"></fa-icon> {{ totalPrice }} $</b
+        <strong
+          ><fa-icon [icon]="faMoneyCheckDollar"></fa-icon>
+          {{ totalPrice.toFixed(2) }} $</strong
         >
       </div>
     </div>

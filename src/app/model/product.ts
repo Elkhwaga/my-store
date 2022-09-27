@@ -6,5 +6,5 @@ export interface Product {
   url: string;
   description: string;
   quantity?: any;
-  // amount?: number;
+  amount: string;
 }

@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
-import { Observable } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
 
 import { Product } from '../model/product';
 
@@ -21,4 +21,6 @@ export class ProductService {
   addProduct(product: Product[]): void {
     this.storage.setItem('cart', JSON.stringify(product));
   }
+
+  cartSubject = new Subject<any>();
 }

@@ -13,6 +13,7 @@ export class ProductListComponent implements OnInit {
   products: Product[] = [];
   cartProduct: Product[] = [];
   loading: boolean = false;
+  shoppingBag: number = 0;
 
   constructor(
     private productService: ProductService,
@@ -54,6 +55,13 @@ export class ProductListComponent implements OnInit {
       this.cartProduct.push(product);
       this.productService.addProduct(this.cartProduct);
     }
-    console.log(product);
+    this.getShoppingBag();
+  }
+
+  getShoppingBag(): void {
+    let cartNumber = this.cartService.getCartProduct();
+    this.shoppingBag = cartNumber.length;
+    this.productService.cartSubject.next(this.shoppingBag);
+    // console.log(this.shoppingBag);
   }
 }
