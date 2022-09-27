@@ -13,10 +13,10 @@ import {
 
 @Component({
   selector: 'app-cart',
-  templateUrl: './cart.component.html',
-  styleUrls: ['./cart.component.css'],
+  templateUrl: './cart-shopping.component.html',
+  styleUrls: ['./cart-shopping.component.css'],
 })
-export class CartComponent implements OnInit {
+export class CartShoppingComponent implements OnInit {
   faTrash: IconDefinition = faTrash;
   faMoneyCheckDollar: IconDefinition = faMoneyCheckDollar;
 
@@ -87,7 +87,9 @@ export class CartComponent implements OnInit {
 
   onSubmit(info: { firstName: any }): void {
     this.cartService.clearCart();
-    this.route.navigate([`confirmation/${info.firstName}/${this.totalPrice}`]);
+    this.route.navigate([
+      `successful-order/${info.firstName}/${this.totalPrice}`,
+    ]);
   }
 
   reloaded(): void {

@@ -1,20 +1,23 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { ProductListComponent } from './components/product-list/product-list.component';
-import { ProductItemDetailComponent } from './components/product-item-detail/product-item-detail.component';
-import { CartComponent } from './components/cart/cart.component';
-import { ConfirmationComponent } from './components/confirmation/confirmation.component';
+
+import { HomeComponent } from './components/home/home.component';
+import { CartShoppingComponent } from './components/cart-shopping/cart-shopping.component';
+import { AllProductComponent } from './components/product-item/all-product/all-product.component';
+import { SuccessfulOrderComponent } from './components/successful-order/successful-order.component';
+import { ProductByIdComponent } from './components/product-item/product-by-id/product-by-id.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: '/products', pathMatch: 'full' },
-  { path: 'products', component: ProductListComponent },
-  { path: 'details/:id', component: ProductItemDetailComponent },
-  { path: 'cart', component: CartComponent },
+  { path: '', redirectTo: '/home', pathMatch: 'full' },
+  { path: 'home', component: HomeComponent },
+  { path: 'all-product', component: AllProductComponent },
+  { path: 'item/:id', component: ProductByIdComponent },
+  { path: 'cart-shopping', component: CartShoppingComponent },
   {
-    path: 'confirmation/:firstName/:totalPrice',
-    component: ConfirmationComponent,
+    path: 'successful-order/:firstName/:totalPrice',
+    component: SuccessfulOrderComponent,
   },
-  { path: '**', redirectTo: '/products', pathMatch: 'full' },
+  { path: '**', redirectTo: '/home', pathMatch: 'full' },
 ];
 
 @NgModule({

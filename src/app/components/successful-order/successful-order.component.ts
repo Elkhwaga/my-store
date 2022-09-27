@@ -9,11 +9,11 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
-  selector: 'app-confirmation',
-  templateUrl: './confirmation.component.html',
-  styleUrls: ['./confirmation.component.css'],
+  selector: 'app-successful-order',
+  templateUrl: './successful-order.component.html',
+  styleUrls: ['./successful-order.component.css'],
 })
-export class ConfirmationComponent implements OnInit {
+export class SuccessfulOrderComponent implements OnInit {
   faArrowLeft: IconDefinition = faArrowLeft;
   faCheck: IconDefinition = faCheck;
   faTruckFast: IconDefinition = faTruckFast;

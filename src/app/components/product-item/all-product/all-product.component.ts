@@ -1,15 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 
-import { Product } from '../../model/product';
-import { ProductService } from '../../services/product.service';
-import { CartService } from '../../services/cart.service';
+import { Product } from '../../../model/product';
+import { ProductService } from '../../../services/product.service';
+import { CartService } from '../../../services/cart.service';
 
 @Component({
-  selector: 'app-product-list',
-  templateUrl: './product-list.component.html',
-  styleUrls: ['./product-list.component.css'],
+  selector: 'app-all-product',
+  templateUrl: './all-product.component.html',
+  styleUrls: ['./all-product.component.css'],
 })
-export class ProductListComponent implements OnInit {
+export class AllProductComponent implements OnInit {
   products: Product[] = [];
   cartProduct: Product[] = [];
   loading: boolean = false;

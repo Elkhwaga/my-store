@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 
-import { Product } from '../../model/product';
-import { ProductService } from '../../services/product.service';
+import { Product } from '../../../model/product';
+import { ProductService } from '../../../services/product.service';
 
 import {
   faArrowLeft,
@@ -11,11 +11,11 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
-  selector: 'app-product-item-detail',
-  templateUrl: './product-item-detail.component.html',
-  styleUrls: ['./product-item-detail.component.css'],
+  selector: 'app-product-by-id',
+  templateUrl: './product-by-id.component.html',
+  styleUrls: ['./product-by-id.component.css'],
 })
-export class ProductItemDetailComponent implements OnInit {
+export class ProductByIdComponent implements OnInit {
   faArrowLeft: IconDefinition = faArrowLeft;
   faPlus: IconDefinition = faPlus;
 

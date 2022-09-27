@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ConfirmationComponent } from './confirmation.component';
+import { ConfirmationComponent } from './successful-order.component';
 
 describe('ConfirmationComponent', () => {
   let component: ConfirmationComponent;
@@ -8,9 +8,8 @@ describe('ConfirmationComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ConfirmationComponent ]
-    })
-    .compileComponents();
+      declarations: [ConfirmationComponent],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(ConfirmationComponent);
     component = fixture.componentInstance;
